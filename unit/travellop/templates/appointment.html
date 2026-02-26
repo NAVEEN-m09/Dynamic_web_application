@@ -1,0 +1,63 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Appointment</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <a href="{% url 'index' %}" class="btn btn-outline-secondary">Back to Home</a>
+                </div>
+                <h2 class="mb-4">Make an Appointment</h2>
+
+                {% if success %}
+                <div class="alert alert-success">Appointment submitted successfully.</div>
+                {% endif %}
+
+                {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+                {% endif %}
+
+                <form method="post" action="{% url 'appointment' %}" class="p-4 border rounded bg-white">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Name *</label>
+                            <input type="text" name="name" class="form-control" value="{{ form_data.name|default:'' }}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Phone *</label>
+                            <input type="text" name="phone" class="form-control" value="{{ form_data.phone|default:'' }}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" value="{{ form_data.email|default:'' }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Date *</label>
+                            <input type="date" name="appointment_date" class="form-control" value="{{ form_data.appointment_date|default:'' }}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Time *</label>
+                            <input type="time" name="appointment_time" class="form-control" value="{{ form_data.appointment_time|default:'' }}" required>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea name="message" class="form-control" rows="4">{{ form_data.message|default:'' }}</textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

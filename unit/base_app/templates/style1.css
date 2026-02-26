@@ -1,0 +1,129 @@
+/* Custom Animations */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-bounce-in {
+    animation: bounceIn 0.5s ease-out;
+}
+
+/* Form Input Focus Effects */
+input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, a {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+
+/* Password strength colors */
+.strength-weak {
+    background-color: #ef4444 !important;
+}
+
+.strength-fair {
+    background-color: #f59e0b !important;
+}
+
+.strength-good {
+    background-color: #3b82f6 !important;
+}
+
+.strength-strong {
+    background-color: #10b981 !important;
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.shake {
+    animation: shake 0.4s ease-in-out;
+}
+
+/* Floating label effect */
+.form-group {
+    position: relative;
+}
+
+/* Success checkmark animation */
+.check-icon {
+    transition: opacity 0.3s ease;
+}
+
+.show-check {
+    opacity: 1 !important;
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Hover lift effect */
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading state */
+.loading {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .bg-gradient-to-br {
+        background: white;
+    }
+    
+    .rounded-2xl {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+    }
+    
+    body {
+        background: white;
+    }
+}
